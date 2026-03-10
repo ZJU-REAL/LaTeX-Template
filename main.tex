@@ -1,0 +1,174 @@
+\documentclass[]{fairmeta} % For LaTeX2e
+
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+\usepackage[utf8]{inputenc}  % allow utf-8 input
+\usepackage[T1]{fontenc}     % use 8-bit T1 fonts
+\usepackage{hyperref}        % hyperlinks
+\usepackage{url}             % simple URL typesetting
+\usepackage{booktabs}        % professional-quality tables
+\usepackage{amsfonts}        % blackboard math symbols
+\usepackage{nicefrac}        % compact symbols for 1/2, etc.
+\usepackage{microtype}       % microtypography
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{colortbl}
+\usepackage{caption}
+\usepackage{lmodern} 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xspace}
+
+%%% For Table
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{tabularx}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\definecolor{lightblue}{RGB}{220,235,250}
+\definecolor{lightgray}{gray}{0.91}
+%%%
+
+% ---------- Prompt Box ----------
+\usepackage[most,skins,theorems]{tcolorbox}
+\usepackage{listings}
+\newtcolorbox{promptbox}[1][]{
+  enhanced, breakable,
+  colback=gray!1,      
+  colframe=gray!60,    
+  coltitle=black,      
+  boxrule=2pt,
+  arc=10pt,
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  title={#1}, fonttitle=\bfseries,
+  attach boxed title to top left={yshift*=-3mm},
+  boxed title style={colback=gray!10}
+}
+
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  backgroundcolor=\color{gray!5},
+  frame=single,
+  rulecolor=\color{black},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  escapeinside={(*@}{@*)},  %
+  moredelim=[is][\color{red}]{[*}{*]}, %
+}
+
+
+\tcbset{
+  aibox/.style={
+    width=\linewidth,
+    top=8pt,
+    bottom=4pt,
+    % colback=blue!6!white,
+    colback=inftythink-red!15,
+    colframe=inftythink-red,
+    colbacktitle=inftythink-red!90!black,
+    % coltitle=black,
+    enhanced,
+    center,
+    attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
+    boxed title style={boxrule=0pt,colframe=white,},
+  }
+}
+\newtcolorbox{AIbox}[2][]{aibox,title=#2,#1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\methodname}{InftyThink$^{+}$\xspace}
+
+
+\title{
+% \includegraphics[width=1.0cm,height=1.0cm,keepaspectratio]{figures/InfiniteThoughtLogo.png}
+Formatting Guidelines of REALLAB LaTeX Template
+}
+
+\author[1,2 *]{Author 1}
+\author[2]{Author 2}
+\author[3]{Author 3}
+\author[1 \dagger]{Author 4}
+
+\affiliation[1]{Affiliation 1}
+\affiliation[2]{Affiliation 2}
+\affiliation[3]{Affiliation 3}
+
+\contribution[*]{Contribution during internship at Affiliation 2}
+\contribution[\dagger]{Corresponding authors}
+
+\abstract{
+  This document provides a basic paper template and submission guidelines.
+  Abstracts must be a single paragraph, ideally between 4--6 sentences long.
+  Please write your abstract here. 
+}
+
+\date{\today}
+\metadata[Project Page]{\url{https://zju-real.github.io/InftyThink-Plus}}
+\metadata[Code]{\url{https://github.com/ZJU-REAL/InftyThink-Plus}}
+% \metadata[Dataset]{\url{https://huggingface.co/datasets/ZJU-REAL/InftyThink}}
+\correspondence{\email{\{author1,author4\}@zju.edu.cn}}
+
+\begin{document}
+
+\include{figures/inftythink}
+\maketitle
+
+
+
+\section{Introduction}
+\label{sec:intro}
+
+\section{Related Works}
+
+\subsection{Related Works Section 1}
+
+\subsection{Related Works Section 2}
+
+\section{Write your sections}
+
+\section{Conclusion}
+
+
+\bibliography{main,custom}
+\bibliographystyle{main}
+
+
+\clearpage
+
+\appendix
+\tableofcontents
+
+\clearpage
+
+
+
+\end{document}
