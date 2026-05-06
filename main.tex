@@ -37,6 +37,15 @@
 \definecolor{lightgray}{gray}{0.91}
 %%%
 
+
+%%% Color
+\definecolor{reallab-red}{RGB}{248,191,199}
+\definecolor{reallab-blue}{RGB}{59,161,255}
+\definecolor{reallab-green}{RGB}{157,207,127}
+\definecolor{reallab-yellow}{RGB}{249,180,13}
+%%%
+
+
 % ---------- Prompt Box ----------
 \usepackage[most,skins,theorems]{tcolorbox}
 \usepackage{listings}
@@ -76,9 +85,9 @@
     top=8pt,
     bottom=4pt,
     % colback=blue!6!white,
-    colback=gray!15,
-    colframe=gray,
-    colbacktitle=gray!90!black,
+    colback=reallab-red!15,
+    colframe=reallab-red,
+    colbacktitle=reallab-red!90!black,
     % coltitle=black,
     enhanced,
     center,
@@ -634,9 +643,7 @@ Before finalizing, verify:
 
 \appendix
 \tableofcontents
-
 \clearpage
-
-
-
+\section{Appendix Section 1}
+\section{Appendix Section 2}
 \end{document}
