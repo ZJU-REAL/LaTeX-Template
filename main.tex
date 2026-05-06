@@ -76,9 +76,9 @@
     top=8pt,
     bottom=4pt,
     % colback=blue!6!white,
-    colback=inftythink-red!15,
-    colframe=inftythink-red,
-    colbacktitle=inftythink-red!90!black,
+    colback=gray!15,
+    colframe=gray,
+    colbacktitle=gray!90!black,
     % coltitle=black,
     enhanced,
     center,
@@ -132,9 +132,9 @@ Formatting Guidelines of REALLAB LaTeX Template
 }
 
 \date{\today}
-\metadata[Project Page]{\url{https://zju-real.github.io/InftyThink-Plus}}
-\metadata[Code]{\url{https://github.com/ZJU-REAL/InftyThink-Plus}}
-% \metadata[Dataset]{\url{https://huggingface.co/datasets/ZJU-REAL/InftyThink}}
+\metadata[Project Page]{\url{https://zju-real.github.io/your-project-name}}
+\metadata[Code]{\url{https://github.com/ZJU-REAL/your-project-name}}
+% \metadata[Dataset]{\url{https://huggingface.co/datasets/ZJU-REAL/your-project-name}}
 \correspondence{\email{\{author1,author4\}@zju.edu.cn}}
 
 \begin{document}
@@ -147,13 +147,481 @@ Formatting Guidelines of REALLAB LaTeX Template
 \section{Introduction}
 \label{sec:intro}
 
+% ---------------------------------------------------------------------------
+%                           USER GUIDE (delete before submission)
+% ---------------------------------------------------------------------------
+
+This template provides structured environments for academic writing.
+Below are examples of all major features. \textbf{Delete this guide section before final submission.}
+
+% ===========================================================================
+% 1. TITLE & AUTHOR CONFIGURATION
+% ===========================================================================
+
+\subsection{Title and Author Configuration}
+\label{sec:title}
+
+\begin{verbatim}
+% Basic author with single affiliation
+\author[1]{Author Name}
+
+% Multiple authors with different affiliations
+\author[1,2]{First Author}
+\author[2,3]{Second Author}
+
+% Add superscript symbols for contributions
+\author[1,2 *]{Author Name}    % * for internship/contribution
+\author[1 \dagger]{Author Name} % dagger for corresponding author
+
+% Affiliation definition
+\affiliation[1]{Department of Computer Science, University X}
+\affiliation[2]{Institute Y}
+
+% Contribution and correspondence
+\contribution[*]{Contribution during internship at ...}
+\correspondence{\email{author@email.com}}
+\end{verbatim}
+
+% ===========================================================================
+% 3. SECTION STRUCTURE (Standard Academic Paper)
+% ===========================================================================
+
+\subsection{Recommended Section Structure}
+\label{sec:sections}
+
+A standard academic paper should include:
+
+\begin{enumerate}[topsep=6pt, itemsep=4pt]
+    \item \textbf{Introduction} ---Motivation, problem statement, contributions
+    \item \textbf{Related Work} ---Existing methods, relationship to your work
+    \item \textbf{Background / Preliminaries} ---Notation, definitions, foundational concepts
+    \item \textbf{Method / Approach} ---Core technical contribution
+    \item \textbf{Experiments} ---Datasets, baselines, results, analysis
+    \item \textbf{Conclusion} ---Summary, limitations, future work
+\end{enumerate}
+
+% ===========================================================================
+% 4. THEOREM-LIKE ENVIRONMENTS
+% ===========================================================================
+
+\subsection{Mathematical Environments}
+\label{sec:math}
+
+This template supports theorem, definition, lemma, proposition, corollary, assumption, and remark.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabular}{lc}
+    \toprule
+    Environment & Command \\
+    \midrule
+    Theorem & \verb|\begin{theorem}...\end{theorem}| \\
+    Definition & \verb|\begin{definition}...\end{definition}| \\
+    Lemma & \verb|\begin lemma}...\end lemma}| \\
+    Proposition & \verb|\begin{prop}...\end{prop}| \\
+    Corollary & \verb|\begin{cor}...\end{cor}| \\
+    Assumption & \verb|\begin{assumption}...\end{assumption}| \\
+    Remark & \verb|\begin remark}...\end remark}| \\
+    \bottomrule
+  \end{tabular}
+  \caption{Theorem-like environments available in this template.}
+  \label{tab:environments}
+\end{table}
+
+\bigskip
+
+% Example theorems:
+\begin{definition}[Normal Distribution]
+\label{def:normal}
+A continuous random variable $X \sim \mathcal{N}(\mu, \sigma^2)$ has probability density function:
+\begin{equation}
+    f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\!\Big(-\frac{(x-\mu)^2}{2\sigma^2}\Big).
+    \label{eq:normal_pdf}
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Pythagorean Identity]
+\label{lm:pythagorean}
+For any orthogonal vectors $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$:
+\begin{equation}
+    \|\mathbf{a} + \mathbf{b}\|^2 = \|\mathbf{a}\|^2 + \|\mathbf{b}\|^2.
+    \label{eq:pythagorean}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The proof follows from the definition of inner product and orthogonality.
+\end{proof}
+
+Reference equations with \verb|\eqref|: e.g., Equation~\eqref{eq:normal_pdf}.
+
+% ===========================================================================
+% 6. TABLES
+% ===========================================================================
+
+\subsection{Tables}
+\label{sec:tables}
+
+Use \texttt{booktabs} style for professional tables.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Comparison of methods on benchmark datasets.}
+  \begin{tabular}{lcccc}
+    \toprule
+    \multirow{2}{*}{Method} & \multicolumn{2}{c}{Dataset A} & \multicolumn{2}{c}{Dataset B} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+           & Acc.@1 & Acc.@5 & Acc.@1 & Acc.@5 \\
+    \midrule
+    Ours    & 95.2  & 98.1  & 93.7  & 97.2 \\
+    Baseline & 89.1  & 94.3  & 85.4  & 92.1 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:results}
+\end{table}
+
+% ===========================================================================
+% 7. FIGURES
+% ===========================================================================
+
+\subsection{Figures}
+\label{sec:figures}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.8\textwidth]{figures/example.pdf}
+  \fbox{\parbox{0.8\linewidth}{\centering%
+    \fontsize{10pt}{12pt}\selectfont%
+    Figure placeholder --- use \texttt{includegraphics} with your image}}
+  \caption{Example figure with caption.}
+  \label{fig:example}
+\end{figure}
+
+For subfigures:
+
+\begin{verbatim}
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{fig1.pdf}
+    \caption{First subfigure.}
+    \label{fig:sub1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{fig2.pdf}
+    \caption{Second subfigure.}
+    \label{fig:sub2}
+  \end{subfigure}
+  \caption{Main caption.}
+  \label{fig:main}
+\end{figure}
+\end{verbatim}
+
+% ===========================================================================
+% 8. ALGORITHMS
+% ===========================================================================
+
+\subsection{Algorithms}
+\label{sec:algorithms}
+
+\begin{algorithm}[htbp]
+  \caption{Example Algorithm}
+  \label{alg:example}
+  \begin{algorithmic}
+    \REQUIRE Input $x$, learning rate $\eta$
+    \ENSURE Updated parameters $\theta$
+    \STATE Initialize $\theta \gets \theta_0$
+    \FOR{epoch $ = 1$ to $T$}
+      \STATE $\mathcal{L} \gets 0$
+      \FOR{each batch $B$}
+        \STATE $\mathcal{L} \gets \mathcal{L} + \ell(f_\theta(x), y)$
+      \ENDFOR
+      \STATE $\theta \gets \theta - \eta \cdot \nabla_\theta \mathcal{L}$
+    \ENDFOR
+    \RETURN $\theta$
+  \end{algorithmic}
+\end{algorithm}
+
+% ===========================================================================
+% 9. EQUATIONS
+% ===========================================================================
+
+\subsection{Equations and Math}
+\label{sec:equations}
+
+Inline math: $\|\mathbf{x}\|_2^2 = \sum_{i=1}^n x_i^2$.
+
+Display equations:
+
+\begin{equation}
+    \mathcal{L}(\theta) = -\mathbb{E}_{x\sim p_{\text{data}}}\big[\log D_\theta(x)\big]
+    - \mathbb{E}_{z\sim p_z}\big[\log(1-D_\theta(G_\phi(z)))\big].
+    \label{eq:gan_loss}
+\end{equation}
+
+Aligned equations:
+
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \theta}
+        &= \frac{\partial \mathcal{L}}{\partial f} \cdot \frac{\partial f}{\partial \theta} \\
+        &= \nabla_f \mathcal{L} \cdot J_f.
+    \label{eq:chain_rule}
+\end{align}
+
+Reference: $\mathcal{L}$\verb||\!\eqref{eq:gan_loss} and gradient\verb||\!\eqref{eq:chain_rule}.
+
+% ===========================================================================
+% 10. CITATIONS
+% ===========================================================================
+
+\subsection{Citations and References}
+\label{sec:citations}
+
+Add entries to your \texttt{.bib} file and cite with \verb|~\citep{key}|:
+
+\begin{itemize}
+  \item Single citation:~\citep{vaswani2017attention}
+  \item Multiple citations:~\citep{vaswani2017attention,aggarwal2025l1}
+\end{itemize}
+
+Bibliography style: \verb|\bibliographystyle{main}|, \verb|\bibliography{main,custom}|
+
+% ===========================================================================
+% 11. LISTS
+% ===========================================================================
+
+\subsection{Lists}
+\label{sec:lists}
+
+\begin{itemize}
+  \item First level item
+    \begin{itemize}
+      \item Nested item
+        \begin{itemize}
+          \item Deeply nested
+        \end{itemize}
+    \end{itemize}
+  \item Another item
+\end{itemize}
+
+Numbered lists:
+
+\begin{enumerate}
+  \item Step one
+  \item Step two
+    \begin{enumerate}
+      \item Substep
+    \end{enumerate}
+\end{enumerate}
+
+% ===========================================================================
+% 12. SPECIAL BOXES
+% ===========================================================================
+
+\subsection{Special Boxes (AIbox, PromptBox)}
+\label{sec:boxes}
+
+Use \texttt{AIbox} for highlighted notes:
+
+\begin{AIbox}{Important Note}
+This is an AIbox environment for important notes or tips.
+\end{AIbox}
+
+Use \texttt{promptbox} for code snippets:
+
+\begin{promptbox}{Code Example}
+\begin{verbatim}
+\begin{AIbox}{Title}
+Your content here.
+\end{AIbox}
+\end{verbatim}
+\end{promptbox}
+
+% ===========================================================================
+%                           END OF USER GUIDE
+% ===========================================================================
+
 \section{Related Works}
+\label{sec:related}
 
-\subsection{Related Works Section 1}
+% ---------------------------------------------------------------------------
+%  PURPOSE
+% ---------------------------------------------------------------------------
 
-\subsection{Related Works Section 2}
+\subsection{Purpose and Structure}
+\label{sec:rw-purpose}
 
-\section{Write your sections}
+The Related Work section serves three goals:
+
+\begin{enumerate}
+    \item \textbf{Show your knowledge} of the field and relevant prior work
+    \item \textbf{Position your work} relative to existing approaches
+    \item \textbf{Highlight novelty} by clearly stating differences from prior work
+\end{enumerate}
+
+Organize related work \textbf{by topic or approach}, not by chronology. Group methods that share similar ideas, assumptions, or techniques together.
+
+% ---------------------------------------------------------------------------
+%  ORGANIZATION PATTERNS
+% ---------------------------------------------------------------------------
+
+\subsection{Common Organization Patterns}
+\label{sec:rw-patterns}
+
+\begin{AIbox}{Pattern 1: Categorize by Method Family}
+Organize into subsections based on methodology families:
+
+\begin{verbatim}
+\section{Related Work}
+\subsection{Generative Models}
+\subsection{Contrastive Learning}
+\subsection{Neural Architecture Search}
+\end{verbatim}
+\end{AIbox}
+
+\begin{AIbox}{Pattern 2: Categorize by Problem Setting}
+Organize by different problem formulations or tasks:
+
+\begin{verbatim}
+\section{Related Work}
+\subsection{Supervised Learning}
+\subsection{Semi-supervised Learning}
+\subsection{Unsupervised Learning}
+\end{verbatim}
+\end{AIbox}
+
+\begin{AIbox}{Pattern 3: Categorize by Application Domain}
+Organize by application areas:
+
+\begin{verbatim}
+\section{Related Work}
+\subsection{Computer Vision}
+\subsection{Natural Language Processing}
+\subsection{Multi-modal Learning}
+\end{verbatim}
+\end{AIbox}
+
+% ---------------------------------------------------------------------------
+%  WRITING STYLE
+% ---------------------------------------------------------------------------
+
+\subsection{Writing Style}
+\label{sec:rw-style}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabular}{p{0.45\linewidth} p{0.45\linewidth}}
+    \toprule
+    \textbf{Do} & \textbf{Don't} \\
+    \midrule
+    Summarize fairly and accurately & Misrepresent prior work \\
+    Use neutral, objective tone & Use dismissive language \\
+    Explain \emph{why} methods differ & Just list method names \\
+    Connect prior work to yours & Treat as isolated entries \\
+    \bottomrule
+  \end{tabular}
+  \caption{Writing style guidelines for Related Work.}
+  \label{tab:rw-style}
+\end{table}
+
+% ---------------------------------------------------------------------------
+%  TEMPLATE SENTENCES
+% ---------------------------------------------------------------------------
+
+\subsection{Template Sentences}
+\label{sec:rw-templates}
+
+Use these templates for smooth transitions:
+
+\bigskip
+\noindent\textbf{Summarizing a body of work:}
+
+\begin{promptbox}{Templates}
+\begin{verbatim}
+% General area
+Recently, there has been growing interest in ... ~\citep{}.
+
+% Gap identification
+While these methods achieve strong performance on ..., they largely overlook ...
+
+% Prior survey
+\citet{smith2020} provide a comprehensive survey on ...
+\end{verbatim}
+\end{promptbox}
+
+\bigskip
+\noindent\textbf{Discussing a specific prior work:}
+
+\begin{promptbox}{Templates}
+\begin{verbatim}
+% Basic summary
+\citet{smith2020} propose a framework for ...
+Their approach leverages ... to achieve ...
+
+% Method details
+Given an input $x$, their method first computes ...
+Then, it applies ... to produce the final output.
+
+% Limitation
+However, this approach assumes ..., which may not hold in ...
+\end{verbatim}
+\end{promptbox}
+
+\bigskip
+\noindent\textbf{Positioning your work:}
+
+\begin{promptbox}{Templates}
+\begin{verbatim}
+% Contrast with prior work
+Unlike \citet{smith2020}, which relies on ...,
+our method directly optimizes ...
+
+% Extension of prior work
+Building on the insight of \citet{smith2020},
+we further propose ...
+
+% Complementary to prior work
+While \citet{smith2020} focuses on accuracy, our work
+specifically addresses efficiency and ...
+
+% Key difference
+The key distinction of our approach is ...
+\end{verbatim}
+\end{promptbox}
+
+\subsection{Related Work Checklist}
+\label{sec:rw-checklist}
+
+Before finalizing, verify:
+
+\begin{itemize}
+    \item[] $\square$ Have you cited all relevant prior work?
+    \item[] $\square$ Are citations accurate and fairly represent the methods?
+    \item[] $\square$ Is the organization logical (by topic, not chronologically)?
+    \item[] $\square$ Does each subsection have a brief introduction?
+    \item[] $\square$ Have you clearly positioned your work relative to others?
+    \item[] $\square$ Are you missing any recent, important references?
+    \item[] $\square$ Is the writing tone neutral and objective?
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+%  YOUR RELATED WORK (delete guidance above)
+% ---------------------------------------------------------------------------
+
+\section{Method}
+
+\subsection{Subsection}
+
+\section{Experiments}
+
+\subsection{Experimental Setup}
+
+\subsection{Results}
 
 \section{Conclusion}
 
